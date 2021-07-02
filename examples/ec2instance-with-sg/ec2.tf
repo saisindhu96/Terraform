@@ -16,7 +16,6 @@ output "public_ip" {
 resource "aws_security_group" "allow_ssh" {
   name        = "allow_ssh"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.main.id
 
   ingress {
     description      = "ssh"
