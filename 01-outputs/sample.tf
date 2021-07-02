@@ -31,3 +31,40 @@ variable "sample2" {
 variable "sample3" {
    default = true
 }
+
+variable "sample4" {
+   default =  [
+      "Hello",
+      1000,
+      true,
+      "World"
+   ]
+}
+
+output "sample4" {
+   value = var.sample4[1]
+}
+
+variable "sample5" {
+   default =  {
+      string = "Hello",
+      number = 100,
+      boolean = true
+   }
+}
+
+output "sample5" {
+   value = var.sample5["boolean"]
+}
+
+variable "sample6" {}
+
+output "sample6" {
+   value = var.sample6
+}
+
+variable "ENV" {}
+
+output "ENV" {
+   value = var.ENV
+}
