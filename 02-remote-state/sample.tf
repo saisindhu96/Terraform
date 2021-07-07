@@ -6,7 +6,7 @@ resource "aws_instance" "sample" {
 
 terraform {
   backend "s3" {
-    bucket                    = "terraform-batch"
+    bucket                    = "terraform-pros"
     key                       = "sample/terraform.tfstate"
     region                    = "us-east-1"
   }
