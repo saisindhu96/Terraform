@@ -1,4 +1,7 @@
 resource "null_resource" "ansible-apply" {
+  //  triggers = {
+  //    abc = timestamp()
+  //  }
   count               = length(var.COMPONENTS)
   provisioner "remote-exec" {
 
@@ -8,14 +11,14 @@ resource "null_resource" "ansible-apply" {
       password        = "DevOps321"
     }
 
-    inline            = [
-      "sudo yum install ansible -y",
-      "sudo yum remove ansible -y",
-      "sudo pip install ansible==3.4.0",
-      "ansible-pull -U https://github.com/saisindhu96/ansible.git roboshop-pull.yml -e COMPONENT=${element(var.COMPONENTS, count.index)}"
+    inline = [
+      "sudo yum install python3-pip -y",
+      "sudo pip3 install pip --upgrade",
+      "sudo pip3 install ansible==4.1.0",
+      "ansible-pull -i localhost, -U https://github.com/saisindhu96/ansible.git roboshop-pull.yml -e COMPONENT=${element(var.COMPONENTS, count.index)}"
     ]
 
   }
 }
 
-variable  "COMPONENTS" {}
+variable "COMPONENTS" {}
