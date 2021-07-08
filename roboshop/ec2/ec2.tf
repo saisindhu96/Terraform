@@ -14,5 +14,5 @@ variable "COMPONENTS" {}
 
 resource "time_sleep" "wait" {
   depends_on          = [aws_spot_instance_request.cheap_worker]
-  create_duriation    = "120s"
+  create_duration    = "120s"
   }
