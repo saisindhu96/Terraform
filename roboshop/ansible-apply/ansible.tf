@@ -3,12 +3,12 @@ resource "null_resource" "ansible-apply" {
   provisioner "remote-exec" {
 
     connection {
-      host = "${element(var.COMPONENTS, count.index)}.roboshop.internal"
-      user = "root"
-      password = "DevOps321"
+      host            = "${element(var.COMPONENTS, count.index)}.roboshop.internal"
+      user            = "root"
+      password        = "DevOps321"
     }
 
-    inline             = [
+    inline            = [
       "sudo yum install ansible -y",
       "sudo yum remove ansible -y",
       "sudo pip install ansible==3.4.0",
@@ -18,4 +18,4 @@ resource "null_resource" "ansible-apply" {
   }
 }
 
-variable "COMPONENTS" {}
+variable  "COMPONENTS" {}
