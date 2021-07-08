@@ -1,7 +1,4 @@
 resource "null_resource" "ansible-apply" {
-  triggers            = {
-  abc                 = timestamp()
-}
   count               = length(var.COMPONENTS)
   provisioner "remote-exec" {
 
